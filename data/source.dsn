@@ -1,0 +1,4 @@
+[ODBC]
+DRIVER=InterBase ODBC driver
+UID=SYSDBA
+Dbname=C:\Programming\Projects\Experimentation\web-framework-test\data\FRAMEWORK_TEST.IB

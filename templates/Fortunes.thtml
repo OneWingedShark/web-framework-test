@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>Fortunes</title></head>
+<body>
+<table> <!-- border="2" cellspacing="0" cellpadding="0"-->
+<tr><th style="min-width: 2em;">id</th><th style="min-width: 15em;" align="left">message</th></tr>
+@@TABLE@@
+    <tr>
+    @@TABLE@@
+	<td>@_RECORDS_@</td>
+	@@END_TABLE@@
+	</tr>
+@@END_TABLE@@
+</table>
+</body>
+</html>

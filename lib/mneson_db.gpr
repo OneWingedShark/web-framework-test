@@ -1,0 +1,22 @@
+with "ai302_prj.gpr";
+
+project MNESON_DB is
+
+   for Source_Dirs use ("mneson/**");
+   for Object_Dir use "obj";
+   for Main use ();
+
+   package Ide is
+      for Documentation_Dir use "mneson\doc";
+   end Ide;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-j4");
+   end Builder;
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-O3", "-gnato", "-fstack-check", "-gnatE", "-gnata");
+   end Compiler;
+
+end MNESON_DB;
+

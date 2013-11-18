@@ -1,0 +1,636 @@
+<html>
+
+
+
+<script type="text/javascript" src="/static/js/analytics.js" ></script>
+<link type="text/css" rel="stylesheet" href="/static/css/banner-styles.css"/>
+
+
+
+<title>Mneson Manual</title>
+
+
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script> if (window.archive_analytics) { window.archive_analytics.values['server_name']="wwwb-app11.us.archive.org";}; </script>
+
+<script type="text/javascript" src="/static/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="/static/js/graph-calc.js" ></script>
+<script type="text/javascript" src="/static/jflot/jquery.min.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+var firstDate = 820454400000;
+var lastDate = 1388534399999;
+var wbPrefix = "/web/";
+var wbCurrentUrl = "http:\/\/www.liacc.up.pt\/~maa\/mneson\/mneson_manual.html";
+
+var curYear = -1;
+var curMonth = -1;
+var yearCount = 18;
+var firstYear = 1996;
+var imgWidth = 450;
+var yearImgWidth = 25;
+var monthImgWidth = 2;
+var trackerVal = "none";
+var displayDay = "22";
+var displayMonth = "Jun";
+var displayYear = "2005";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function showTrackers(val) {
+	if(val == trackerVal) {
+		return;
+	}
+	if(val == "inline") {
+		document.getElementById("displayYearEl").style.color = "#ec008c";
+		document.getElementById("displayMonthEl").style.color = "#ec008c";
+		document.getElementById("displayDayEl").style.color = "#ec008c";		
+	} else {
+		document.getElementById("displayYearEl").innerHTML = displayYear;
+		document.getElementById("displayYearEl").style.color = "#ff0";
+		document.getElementById("displayMonthEl").innerHTML = displayMonth;
+		document.getElementById("displayMonthEl").style.color = "#ff0";
+		document.getElementById("displayDayEl").innerHTML = displayDay;
+		document.getElementById("displayDayEl").style.color = "#ff0";
+	}
+   document.getElementById("wbMouseTrackYearImg").style.display = val;
+   document.getElementById("wbMouseTrackMonthImg").style.display = val;
+   trackerVal = val;
+}
+function getElementX2(obj) {
+	var thing = jQuery(obj);
+	if((thing == undefined) 
+			|| (typeof thing == "undefined") 
+			|| (typeof thing.offset == "undefined")) {
+		return getElementX(obj);
+	}
+	return Math.round(thing.offset().left);
+}
+function trackMouseMove(event,element) {
+
+   var eventX = getEventX(event);
+   var elementX = getElementX2(element);
+   var xOff = eventX - elementX;
+	if(xOff < 0) {
+		xOff = 0;
+	} else if(xOff > imgWidth) {
+		xOff = imgWidth;
+	}
+   var monthOff = xOff % yearImgWidth;
+
+   var year = Math.floor(xOff / yearImgWidth);
+	var yearStart = year * yearImgWidth;
+   var monthOfYear = Math.floor(monthOff / monthImgWidth);
+   if(monthOfYear > 11) {
+       monthOfYear = 11;
+   }
+   // 1 extra border pixel at the left edge of the year:
+   var month = (year * 12) + monthOfYear;
+   var day = 1;
+	if(monthOff % 2 == 1) {
+		day = 15;
+	}
+	var dateString = 
+		zeroPad(year + firstYear) + 
+		zeroPad(monthOfYear+1,2) +
+		zeroPad(day,2) + "000000";
+
+	var monthString = prettyMonths[monthOfYear];
+	document.getElementById("displayYearEl").innerHTML = year + 1996;
+	document.getElementById("displayMonthEl").innerHTML = monthString;
+	// looks too jarring when it changes..
+	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
+
+	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	document.getElementById('wm-graph-anchor').href = url;
+
+   //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
+   if(curYear != year) {
+       var yrOff = year * yearImgWidth;
+       document.getElementById("wbMouseTrackYearImg").style.left = yrOff + "px";
+       curYear = year;
+   }
+   if(curMonth != month) {
+       var mtOff = year + (month * monthImgWidth) + 1;
+       document.getElementById("wbMouseTrackMonthImg").style.left = mtOff + "px";
+       curMonth = month;
+   }
+}
+//]]>
+</script>
+
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" lang="en" class="__wb_banner_div" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px">
+
+
+<div id="wm-ipp-inside" class="__wb_banner_div" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(/static/images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
+   <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
+   <td style="padding:10px;vertical-align:top;min-width:110px;">
+   <a href="/web/" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="/static/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+   </td>
+   <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
+
+       <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
+       <td style="padding:3px 0;" colspan="2">
+       <form target="_top" method="get" action="/web/form-submit.jsp" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="url" id="wmtbURL" value="http://www.liacc.up.pt/~maa/mneson/mneson_manual.html" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;" onfocus="javascript:this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20050622083653" /><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;width: inherit !important" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
+           <table style="border-collapse:collapse;width:110px;color:#99a;font-family:'Helvetica','Lucida Grande','Arial',sans-serif;"><tbody>
+			
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr style="width:110px;height:16px;font-size:10px!important;">
+           	<td style="padding-right:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="/web/20050302120915/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="2 Mar 2005"><strong>MAR</strong></a>
+		                
+               </td>
+               <td id="displayMonthEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight:bold;text-transform:uppercase;width:34px;height:15px;padding-top:1px;text-align:center;" title="You are here: 8:36:53 Jun 22, 2005">JUN</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight:bold;text-transform:uppercase;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="/web/20060709012702/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="9 Jul 2006"><strong>JUL</strong></a>
+		                
+               </td>
+           </tr>
+
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr>
+               <td style="padding-right:9px;white-space:nowrap;overflow:visible;text-align:right!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="/web/20050302120915/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html" title="12:09:15 Mar 2, 2005" style="background-color:transparent;border:none;"><img src="/static/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0" /></a>
+		                
+               </td>
+               <td id="displayDayEl" style="background:#000;color:#ff0;width:34px;height:24px;padding:2px 0 0 0;text-align:center;font-size:24px;font-weight: bold;" title="You are here: 8:36:53 Jun 22, 2005">22</td>
+				<td style="padding-left:9px;white-space:nowrap;overflow:visible;text-align:left!important;vertical-align:middle!important;" nowrap="nowrap">
+               
+		                <a href="/web/20060709012702/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html" title="1:27:02 Jul 9, 2006" style="background-color:transparent;border:none;"><img src="/static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"/></a>
+		                
+			    </td>
+           </tr>
+
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr style="width:110px;height:13px;font-size:9px!important;">
+				<td style="padding-right:9px;font-size:11px!important;font-weight: bold;text-align:right;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+                       2004
+                       
+               </td>
+               <td id="displayYearEl" style="background:#000;color:#ff0;font-size:11px!important;font-weight: bold;padding-top:1px;width:34px;height:13px;text-align:center;" title="You are here: 8:36:53 Jun 22, 2005">2005</td>
+				<td style="padding-left:9px;font-size:11px!important;font-weight: bold;white-space:nowrap;overflow:visible;" nowrap="nowrap">
+               
+		                <a href="/web/20060709012702/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html" style="text-decoration:none;color:#33f;font-weight:bold;background-color:transparent;border:none;" title="9 Jul 2006"><strong>2006</strong></a>
+		                
+				</td>
+           </tr>
+           </tbody></table>
+       </td>
+
+       </tr>
+       <tr>
+       <td style="vertical-align:middle;padding:0!important;">
+           <a href="/web/20050622083653*/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html" style="color:#33f;font-size:11px;font-weight:bold;background-color:transparent;border:none;" title="See a list of every capture for this URL"><strong>14 captures</strong></a>
+           <div class="__wb_banner_div" style="margin:0!important;padding:0!important;color:#666;font-size:9px;padding-top:2px!important;white-space:nowrap;" title="Timespan for captures of this URL">23 Oct 04 - 29 Jun 07</div>
+       </td>
+       <td style="padding:0!important;">
+       <a style="position:relative; white-space:nowrap; width:450px;height:27px;" href="" id="wm-graph-anchor">
+       <div class="__wb_banner_div" id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:450px;height:27px;background-color:#fff;cursor:pointer;border-right:1px solid #ccc;" title="Explore captures for this URL">
+			<img id="sparklineImgId" style="position:absolute; z-index:9012; top:0px; left:0px;"
+				onmouseover="showTrackers('inline');" 
+				onmouseout="showTrackers('none');"
+				onmousemove="trackMouseMove(event,this)"
+				alt="sparklines"
+				width="450"
+				height="27"
+				border="0"
+				src="/web/jsp/graph.jsp?graphdata=450_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000100_2005:5:011001000000_2006:-1:000000600100_2007:-1:100011000000_2008:-1:000000000000_2009:-1:000000000000_2010:-1:000000000000_2011:-1:000000000000_2012:-1:000000000000_2013:-1:000000000000"></img>
+			<img id="wbMouseTrackYearImg" 
+				style="display:none; position:absolute; z-index:9010;"
+				width="25" 
+				height="27"
+				border="0"
+				src="/static/images/toolbar/transp-yellow-pixel.png"></img>
+			<img id="wbMouseTrackMonthImg"
+				style="display:none; position:absolute; z-index:9011; " 
+				width="2"
+				height="27" 
+				border="0"
+				src="/static/images/toolbar/transp-red-pixel.png"></img>
+       </div>
+		</a>
+
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
+       <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(/static/images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="display:block;padding-right:18px;background:url(/static/images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+
+</div>
+</div>
+<script type="text/javascript">
+ var wmDisclaimBanner = document.getElementById("wm-ipp");
+ if(wmDisclaimBanner != null) {
+   disclaimElement(wmDisclaimBanner);
+ }
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+<img src="/web/20050622083653im_/http://www.liacc.up.pt/~maa/mneson/mneson_logo.png">
+<h1>Mneson Manual</h1>
+
+<address>
+(C) Marius Amado Alves (amado.alves@netcabo.pt, maa@liacc.up.pt)<br>
+License: SCD Conditions (www.softdevelcoop.org)<br>
+Manual version 20040324<br>
+Mneson version 20040323a<br>
+</address>
+
+<h2>Contents</h2>
+
+<dl>
+<dt><a href="/web/20050622083653/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html#overview">Overview and main concepts</a>
+<dt><a href="/web/20050622083653/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html#fileops">File operations</a>
+<dt><a href="/web/20050622083653/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html#vertexops">Vertex operations</a>
+<dt><a href="/web/20050622083653/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html#linkops">Link operations</a>
+<dt><a href="/web/20050622083653/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html#plannedincs">Planned increments</a>
+<dt><a href="/web/20050622083653/http://www.liacc.up.pt/~maa/mneson/mneson_manual.html#demo">Demonstration</a>
+</dl>
+
+<h2 id="overview">Overview and main concepts</h2>
+
+<p>
+Mneson is an Ada library for persistent graphs of basic values (integer, string, float). A vertex may also be valueless.
+
+<p>
+A graph is a set of links. A link is an ordered pair (source, target) of vertices. Links are untyped. Graphs can be cyclic.
+
+<p>
+A vertex is a small (80 bits) structure capable of representing a basic data value. During processing (graph open) all linked vertices are in main memory. Upon closing or saving all data is stored in files. Values whose size exceeds the vertex structure size are partially stored in files at all times. A vertex may also be valueless i.e contain no value at all.
+
+<p>
+The library is construed as a generic package called Mneson. An instance of Mneson represents a graph.
+
+<p>
+A Mneson graph is a pure ADT (Abstract Data Type) i.e. its state is manipulated only through operations.
+
+<h2 id="calculus">Mneson calculus</h2>
+
+The type Selection represents a set of vertices in the Mneson calculus.
+
+A selection is an intensional representation. Operation For_Each materializes each element of the selection iteratively.
+
+The Mneson Calculus primitives are Targets, Sources, Intersect.
+
+<h2 id="fileops">File operations</h2>
+
+<p>
+A Mneson graph is either closed or open. A closed graph is in an inconsistent state regarding its content.
+
+<p>
+Because files are involved, open operations require a name that must be a valid filename. Standard exceptions e.g. <b>Name_Error</b> associated with standard file operations may be propagated upon passing an invalid name.
+
+<p>
+<b>Create</b> attempts to open a new empty graph under the given name. If the current graph is open then <b>State_Error</b> is propagated, and the graph is not changed.
+
+<p>
+<b>Open</b> attempts to open the named graph. If the current graph is open then <b>State_Error</b> is propagated, and the graph is not changed.
+
+<p>
+<b>Save</b> closes the graph and then reopens it with the same name. Upon success, the graph is not changed.
+
+<p>
+<b>Save_As</b> closes the graph, copies the associated physical files to the new name, and then opens this newly named graph. Upon success, the graph is not changed, except for its name.
+
+<p>
+<b>Close</b> attempts to close the current graph. If the current graph is already closed then <b>State_Error</b> is propagated, and the graph is not changed (but it is in an inconsistent state).
+
+<h2 id="vertexops">Vertex operations</h2>
+
+<p>
+Function <b>New_Vertex</b> returns a new unique valueless vertex.
+
+<p>
+Each function <b>To_Vertex</b> returns a unique vertex representing the given value.
+
+<p>
+A vertex holding a value of type T is called "a T vertex".
+
+<p>
+Predicates <b>Is_Integer</b>, <b>Is_String</b>, etc. can be used to inspect the type of value held in a vertex.
+
+<p>
+Function <b>Img</b> returns an image of the given vertex. The image of an integer vertex is equal to the standard Integer'Image result. The image of a string vertex is the contained string value enclosed in double quotes (i.e. including the quotes). The image of a valueless vertex is the character '#' followed by the decimal representation of the vertex number which is a positive number that uniquely identifies the vertex within its graph; this representation, unlike the standard Positive'Image, does not have a leading space character. Examples:
+<pre>
+ 123
+-456
+"abc"
+#789
+</pre>
+
+<p>
+The type predicates above and <b>Img</b> are considered 'utility' functions. They are not designed for graph management. See Mneson/T for properly typed graphs
+
+<h2 id="linkops">Link operations</h2>
+
+<p>
+Links are the heart and soul of Mneson. Only links are created or destroyed. Only linked vertices are stored. Only linked vertices can be retrieved. Link operations are organized in families: connect, disconnect, reconnect, for-each, get-vertices.
+
+<h3 id="connectops">Connect operations</h3>
+
+<p>
+Connect operations create the given links.
+
+<p>
+[To be completed. In the meanwhile, see the spec.]
+
+<h3 id="disconnectops">Disconnect operations</h3>
+
+<p>
+Disconnect operations destroy the given links.
+
+<p>
+[To be completed. In the meanwhile, see the spec.]
+
+<h3 id="reconnectops">Reconnect operations</h3>
+
+<p>
+Reconnect operations destroy the links from the given Source/Target to the given Target/Source and create links from the given Source/Target to the given New_Target/New_Source.
+
+<p>
+[To be completed. In the meanwhile, see the spec.]
+
+<h3 id="foreachops">For-each operations</h3>
+
+For_Each operations visit the specified entities executing Process upon each.
+
+<p>
+[To be completed. In the meanwhile, see the spec.]
+
+<h3 id="getvertexops">Get-vertex operations</h3>
+
+<p>
+Get_Vertex operations return an array of vertices. Use only for small sets.
+
+<p>
+[To be completed. In the meanwhile, see the spec.]
+
+<h2 id="plannedincs">Planned increments</h2>
+
+<h3 id="mnesonp">Mneson/P</h3>
+
+P for "Protected", or "Paralell". A 'thread-safe' version of Mneson. I think this can be accomplished with a protected object containing all operations renamed to the 'unprotected' ones. This protected object can be nested in or a children of package Mneson (Mneson.P) or a separate package withing Mneson (Mneson_P).
+
+<h3 id="mnesont">Mneson/T</h3>
+
+T for "Typed graphs". This can be accomplished by construing typed links as vertices:
+
+<p>
+procedure Connect (Source, Link, Target : Vertex);
+
+<p>
+It seems wise to base Mneson/T on Mneson/P.
+
+<h3 id="manualinc">Complete the manual</h3>
+
+Complete the link operation sections, and add a section on implementation details that are relevant for users e.g. metrics.
+
+<h2 if="files">Files in the distribution</h2>
+
+Source code files follow the GNAT convention: one library unit per file, lowercase filenames equal to the unit name with hyphens instead of dots, "ads" extension for specs, "adb" extension for bodies.
+
+<p>
+Package Mneson constitutes the library. Package Order and certain descendants of AI302 are required by Mneson. All are included in the distribution.
+
+<h2 id="demo">Demonstration</h2>
+
+<p>
+Let's use the Test.Interactive tool to create and explore a graph representing the following toy database of contacts:
+
+<p>
+<table border>
+<tr><th>Name<th>Email addresses
+<tr><td rowspan=2>marius
+    <td>amado.alves@netcabo.pt
+<tr>
+    <td>maa@liacc.up.pt
+<tr><td>liacc
+    <td>maa@liacc.up.pt
+<tr><td>comp.lang.ada
+    <td>comp.lang.ada@ada-france.pt
+</table>
+
+<p>
+First invoke the tool (the details here depend on the operating system; the example shown is on Linux; on Windows, type <code>test-interactive.exe</code> or click on the icon):
+
+<pre>
+$ ./test-interactive
+This program provides interactive Mneson graph testing.
+The prompt shows the current graph name and state.
+Type HELP for the list of available operations.
+Mneson homepage: www.liacc.up.pt/~maa/mneson
+TEST CLOSED>
+</pre>
+
+<p>
+Note the graph is closed, hence inconsistent. Let's create a new graph called "demo" for our demonstration:
+
+<pre>
+TEST CLOSED>create demo
+demo OPEN>
+</pre>
+
+<p>
+Now we can populate the graph (the LINK command equates the <b>Connect</b> operation):
+
+<pre>
+demo OPEN>link "marius" "amado.alves@netcabo.pt"
+demo OPEN>link "marius" "maa@liacc.up.pt"
+demo OPEN>link "liacc" "maa@liacc.up.pt"
+demo OPEN>link "comp.lang.ada" "comp.lang.ada@ada-france.org"
+</pre>
+
+<p>
+By now we can already retrieve email addresses given a name:
+
+<pre>
+demo OPEN>show "marius"
+"marius"
+|__"amado.alves@netcabo.pt"
+|__"maa@liacc.up.pt"
+</pre>
+
+<p>
+To show all contacts we have to link them all to some vertex. Let's call it "top":
+
+<pre>
+demo OPEN>link "top" "marius"
+demo OPEN>link "top" "comp.lang.ada"
+demo OPEN>link "top" "liacc"
+</pre>
+
+<p>
+Let's verify:
+
+<pre>
+demo OPEN>show "top"
+"top"
+|__"comp.lang.ada"
+|__"liacc"
+|__"marius"
+</pre>
+
+<p>
+We can also show all names along with their email addresses. Just specify a maximum path length greater that the default 1:
+
+<pre>
+demo OPEN>show "top" 2
+"top"
+|__"comp.lang.ada"
+|  |__"comp.lang.ada@ada-france.org"
+|__"liacc"
+|  |__"maa@liacc.up.pt"
+|__"marius"
+   |__"amado.alves@netcabo.pt"
+   |__"maa@liacc.up.pt"
+</pre>
+
+<p>
+Let's call it a day:
+
+<pre>
+demo OPEN>quit
+$
+</pre>
+
+<p>
+Note QUIT properly closes the graph before terminating. Confirm this by reinvoking the tool and issuing "open demo" (without the quotes).
+
+<h2>Mneson Conventions</h2>
+
+The Mneson Conventions define a way to represent complex structures, notably attributes and typed links, in the untyped graph.
+
+<h3>Basic attribute representation convention</h3>
+
+<p>
+1. For each <i>attribute type</i>, there exists a vertex that represents it.
+
+<p>
+2. Each target of an attribute type is an <i>attribute instance</i>.
+
+<p>
+3. An attribute instance has exactly 2 sources.
+
+<p>
+4. Of necessity, one is the attribute type. The other is the <i>subject</i> of the attribute.
+
+<p>
+5. The targets of an attribute instance represent its value.
+
+<h3>Alternate valueless attribute instance representation convention</h3>
+
+<p>
+6. An atribute type represents a valueless attribute instance.
+
+<h3>Simple attribute type naming convention</h3>
+
+<p>
+7. The target of a string <i>s</i> is an attribute type of name <i>s</i>.
+
+<h3>Simple typed connection representation convention</h3>
+
+<p>
+8. An attribute instance represents an typed connection.
+
+<h3>Simple set representation convention</h3>
+
+9. For a vertex that represents a set, its targets represent its elements.
+
+<h3>Simple record representation convention</h3>
+
+10. A record is a set of attribute instances, the <i>components</i> of the record.
+
+<h3>Simple vector representation convention</h3>
+
+11. A vector is a one dimensional array of integer index.
+
+12. A vector of index range [First, Last] is represented as a record whose components are of type First to Last.
+
+<h2>Why attribute instances</h2>
+
+And not attribute values directly represented in their place.
+
+<p>
+Because if they were, then the attribute types of distinct subjects with the same value could not be distinguished.
+
+<h2 id="mntext">Mntext</h2>
+
+Mntext is a textual language for the description of graph data.
+
+A Mntext item describes an attribute instance following the Mneson conventions.
+
+<h3>Mntext grammar</h3>
+
+<pre>
+item ::= [basic_value_sequence] value
+basic_value ::= name / number / text
+value ::= basic_value / set
+set ::= '{' item_list '}'
+
+</pre>
+
+<h3>Semantics</h3>
+
+A Mntext compiler accepts an open graph and a Mntext item and returns a (possibly created anew) vertex that represents the described attribute instance.
+
+The choice of a subject for this attribute instance is outside the scope of Mntext.
+
+<h3>Examples</h3>
+
+<pre>
+{marius {amado.alves@netcabo.pt, maa@liacc.up.pt},
+ liacc {maa@liacc.up.pt},
+ comp.lang.ada {comp.lang.ada@ada-france.org}}
+</pre>
+
+Or, with a more precise schema:
+
+<pre>
+top{
+  {name marius,
+   email {amado.alves@netcabo.pt, maa@liacc.up.pt}},
+  {name liacc,
+   email {maa@liacc.up.pt}},
+  {name comp.lang.ada,
+   email {comp.lang.ada@ada-france.org}}}
+</pre>
+
+
+Mntext item     result
+A               Y = A
+
+A1 A2           A1 -> Y, Y -> A2
+
+A1 A2 A3        A1 -> Y, Y -> X1, A2 -> X2, X2 -> A3
+
+A1 A2 A3 A4     A1 -> Y, Y -> X1, A2 -> X2, X2 -> X3, A3 -> X3, X3 -> A4
+
+A {B1, B2, ... Bn}   A -> result -> B -
+
+item_sequence ::= item [item_sequence]
+item ::= basic_value / set
+set ::= '{' item_list '}'
+item_list ::= item [',' item_list]
+
+
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 8:36:53 Jun 22, 2005 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 2:36:18 Nov 18, 2013.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

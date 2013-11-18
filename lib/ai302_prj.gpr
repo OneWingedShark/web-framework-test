@@ -1,0 +1,20 @@
+project AI302_PRJ is
+
+   for Source_Dirs use ("AI302");
+   for Object_Dir use "obj";
+   for Main use ();
+
+   package Ide is
+      for Documentation_Dir use "AI302\doc";
+   end Ide;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-j4");
+   end Builder;
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-gnato", "-fstack-check", "-gnata", "-O3");
+   end Compiler;
+
+end AI302_PRJ;
+
